@@ -6,52 +6,53 @@ using namespace std;
 class Cat {
 
 public:
-    enum Type {  // внутреннее перечисление типа кота
+    enum Type { 
         Bald,
         Hairy
     };
-    string name;  // свойство имя
-    string color;  // свойство цвет
+    string name;  
+    string color; 
 
-    Cat(string name, int age, string color, int weight, Type type) {  // конструктор, он нужен чтобы создавать новых котиков
-        this->name = name;  // this нужен чтобы обратиться к текущему котику
+    Cat(string name, int age, string color, int weight, Type type) {  
+        this->name = name;  
         this->age = age;
         this->color = color;
         this->weight = weight;
         this->type = type;
     }
     
-    ~Cat() {  // деструктор, нужен чтобы избавляться от котиков
+    ~Cat() {  
     }
     
-    void setWeight(int weight) {  // сеттер, метод устанавливающий вес кота
+    void setWeight(int weight) {  
         if (weight > 0) {
             this->weight = weight;
         }
     }
     
-    string toString() const {  // метод для преобразования котика в строку
+    string toString() const {  
         stringstream ss;
         ss << "Name: " << this->name << "\nWeight: " << this->weight;
         return ss.str();
     }
     
-    friend ostream &operator<<(ostream &output, const Cat &c ) {  // перегружаем оператор вывода, чтобы выводить котика в консоль
+    friend ostream &operator<<(ostream &output, const Cat &c ) {  
         output << c.toString();
         return output;            
     }
     
 private:
-    const static int modelVersion = 1;  // версия модели, увеличиваем версию когда меняется структура класса кот
-    int age;  // свойство возвраст
-    int weight;  // свойство вес
-    Type type;  // свойство тип
+    const static int modelVersion = 1;  
+    int age; 
+    int weight;  
+ 
+    Type type;  
 };
 
-class FatCat : public Cat {  // наследуемся от класса Cat 
+class FatCat : public Cat {  
     
 public:
-    FatCat(string name, int age, string color) : Cat(name, age, color, 1000000, Cat::Type::Bald) {  // вызываем конструктор класса от которого наследуемся (супер-конструктор)
+    FatCat(string name, int age, string color) : Cat(name, age, color, 1000000, Cat::Type::Bald) {  
     }
 };
 
