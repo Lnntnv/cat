@@ -57,16 +57,16 @@ public:
 };
 
 int main() {
-    // создаем котов
+   
     Cat *dacota = new Cat("Дакота", 1, "серая", 3724, Cat::Type::Bald);
     Cat *senya = new Cat("Сеня", 10, "белый", 1000, Cat::Type::Hairy);
     Cat *kirill = new FatCat("Кирилл", 2, "черный");
     
-    // меняем кота
+
     senya->name = "Кирилл";
     senya->setWeight(10000000);
     
-    // выводим кота
+
     cout << *kirill;
     return 0;
 }
